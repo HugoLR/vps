@@ -6,6 +6,15 @@
 </head>
 <body>
     <h1>Hello world</h1>
-    <p>This is a baci html</p>
+    <p>This is a basic html</p>
 </body>
+<script>
+    let ws;
+
+    const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
+    ws = new WebSocket(`${protocol}://${window.location.host}`);
+    ws.onmessage = (message) => {
+        console.log('Message from server ', message.data);
+    };
+</script>
 </html>
